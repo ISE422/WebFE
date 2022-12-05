@@ -38,6 +38,46 @@
 
         <div class="content container mt-1" style="min-height: 100vh; width: 100%;">
             <div class="col-md-12 fs-2 p-2 text-white text-center rounded mb-4" style="background: #f8c4d9;">Leader Board</div>
+            <form action="" class="container">
+                <div class="row justify-content-around">
+                    <label class="col-1" for="subjects">Subjects:</label>
+                    <select class="col-1" name="subjects" id="subjects">
+                        <option value="Tất cả">Tất cả</option>
+                        <option value="Toán">Toán</option>
+                        <option value="Lý">Lý</option>
+                        <option value="Hóa">Hóa</option>
+                        <option value="Sinh">Sinh</option>
+                        <option value="Sử">Sử</option>
+                        <option value="Địa">Địa</option>
+                        <option value="Văn">Văn</option>
+                        <option value="Đ.Đức">Đ.Đức</option>
+                        <option value="T.Dục">T.Dục</option>
+                    </select>
+
+                    <label class="col-1" for="grade">Grade:</label>
+                    <select class="col-1" name="grade" id="grade">
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+        
+                    <label class="col-1" for="semester">Semester:</label>
+                    <select class="col-1" name="semester" id="semester">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+
+                    <label class="col-1" for="year">Year:</label>
+                    <select class="col-1" name="year" id="year">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="row my-5 justify-content-center gap-5">   
+                    <button class="btn col-1" style="background: #f8c4d9;">Top 10</button>
+                    <button class="btn col-1" style="background: #f8c4d9;">Top 50</button>
+                </div>
+            </form>
                 <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
