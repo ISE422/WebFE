@@ -66,7 +66,7 @@
                     </select>
                 </div>
                 <div class="row my-5 justify-content-center">   
-                    <button class="btn col-1" style="background: #f8c4d9;">Show</button>
+                    <button id="btn_show" class="btn col-1" style="background: #f8c4d9;">Show</button>
                 </div>
             </form>
             <table id="example" class="table table-striped" style="width:100%">
@@ -84,7 +84,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>161</td>
+                            <td class="id">161</td>
                             <td>Toàn</td>
                             <td>8</td>
                             <td>9</td>
@@ -93,7 +93,7 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>162</td>
+                            <td class="id">162</td>
                             <td>Cường</td>
                             <td>8</td>
                             <td>7</td>
@@ -102,7 +102,7 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>163</td>
+                            <td class="id">163</td>
                             <td>An</td>
                             <td>9</td>
                             <td>9</td>
@@ -111,6 +111,50 @@
                         </tr>
                     </tbody>
             </table>
+            <!-- Modal -->
+            <div class="modal fade " id="editScoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ID: </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container d-flex justify-content-around gap-3">
+                                <div class="col-4">
+                                    <label for="modal_15mins" class="form-label">15-mins</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_15mis"
+                                        placeholder="8.0"/>
+                                </div>
+                                <div class="col-4">
+                                    <label for="modal_15mins" class="form-label">45-mins</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_45mis"
+                                        placeholder="8.0"/>
+                                </div>
+                                <div class="col-4">
+                                    <label for="modal_15mins" class="form-label">Semester final</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_15mis"
+                                        placeholder="8.0"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn" style="background: #f8c4d9;">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -120,6 +164,18 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+            
+            // when table-row is clicked
+            $("#example tbody tr").click(function () {
+                // find student's ID
+                var item = $(this).closest("tr")   // Finds the closest row <tr> 
+                       .find(".id")     // Gets a descendent with class="nr"
+                       .text();
+                // set student's ID for Modal header 
+                $(".modal-title").text("ID: " + item);
+                // show modal       
+                $("#editScoreModal").modal("show");
+            });
         });
     </script>
 </body>

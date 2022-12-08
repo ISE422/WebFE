@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/92d27ed35b.js" crossorigin="anonymous"></script>
+    <link 
+        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+        rel="stylesheet"  type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">   
+    <!--jQuery-->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav" style="background: #c5eeeb; min-width: 250px; max-width: 250px; position: relative;">
+            <div style="position: fixed;">
+                <div class="header-box px-2 pt-3 pb-4">
+                    <img src="./logo.png" class="mx-auto d-block pb-3" />
+                    <h1 class="fs-4"><span class="text-dark rounded shadow px-2 mx-5 d-block text-center" style="background: #f8c4d9;">Admin</span></h1>
+                </div>
+    
+                <ul class="list-unstyled px-4 py-2">
+                    <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-regular fa-user"></i> Create account</a></li>
+                    <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-regular fa-clipboard"></i> Create class</a></li>
+                    <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-solid fa-list"></i> Manage teachers</a></li>
+                    <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-solid fa-list"></i> Manage students</a></li>
+                    <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-regular fa-pen-to-square"></i> Manage rules</a></li>
+                </ul>
+                <hr style="background: #FEB7D3;" class="mx-2">
+                <div class="text-center">
+                    <a href="#" class="text-decoration-none "> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content container mt-1" style="min-height: 100vh; width: 100%;">
+            <div class="col-md-12 fs-2 p-2 text-white text-center rounded mb-4" style="background: #f8c4d9;">Manage Rules</div>
+                <table id="table_rules" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="width:50%;" class="text-center">Rule</th>
+                        <th class="text-center">Condition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuổi tối thiểu</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="minOld"
+                            placeholder="15"
+                            class="form-control" disabled="disabled"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tuổi tối đa</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="maxOld"
+                            placeholder="25"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sĩ số</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="size"
+                            placeholder="50"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng lớp</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="totalClass"
+                            placeholder="100"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng môn học</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="totalSubject"
+                            placeholder="25"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Điểm chuẩn đạt</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="passScore"
+                            placeholder="25"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Môn học mới</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="newSubject"
+                            placeholder="Nhập môn học mới"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Đổi tên môn <select name="subjects" id="subjects" class="mx-5 col-2">
+                            <option value="Toán">Toán</option>
+                            <option value="Văn">Văn</option>
+                        </select> thành môn</td>
+                        <td>
+                            <input
+                            type="text"
+                            id="changeSubject"
+                            placeholder="Nhập môn học mới"
+                            class="form-control" disabled/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container d-flex justify-content-center gap-5">
+                <button id="btn_edit" class="btn col-1" style="background: #f8c4d9;">Edit</button>
+                <button id="btn_save" class="btn col-1" style="background: #f8c4d9;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn_edit").click(function(){
+                $("#minOld").prop("disabled", false).focus();
+                $("#maxOld").prop("disabled", false);
+                $("#size").prop("disabled", false);
+                $("#totalClass").prop("disabled", false);
+                $("#totalSubject").prop("disabled", false);
+                $("#passScore").prop("disabled", false);
+                $("#newSubject").prop("disabled", false);
+                $("#totalClass").prop("disabled", false);
+                $("#changeSubject").prop("disabled", false);
+            })
+
+            // BE set cho nút Save
+            $("#btn_save").click(function(){
+                // TODO: send input to server
+
+                $("#minOld").prop("disabled", true);
+                $("#maxOld").prop("disabled", true);
+                $("#size").prop("disabled", true);
+                $("#totalClass").prop("disabled", true);
+                $("#totalSubject").prop("disabled", true);
+                $("#passScore").prop("disabled", true);
+                $("#newSubject").prop("disabled", true);
+                $("#totalClass").prop("disabled", true);
+                $("#changeSubject").prop("disabled", true);
+            })
+        })
+    </script>
+
+</body>
+</html>

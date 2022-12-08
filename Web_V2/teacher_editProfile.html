@@ -16,11 +16,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">   
+
+    <!--jQuery-->
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="main-container d-flex" style="position: fixed;">
-        <div class="sidebar" id="side_nav" style="background: #c5eeeb; min-width: 250px; max-width: 250px;">
-            <div class="header-box px-2 pt-3 pb-4">
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav" style="background: #c5eeeb; min-width: 250px; max-width: 250px; position: relative;">
+            <div style="position: fixed;">
+              <div class="header-box px-2 pt-3 pb-4">
                 <img src="./logo.png" class="mx-auto d-block pb-3" />
                 <h1 class="fs-4"><span class="text-dark rounded shadow px-2 mx-5 d-block text-center" style="background: #f8c4d9;">Teacher</span></h1>
             </div>
@@ -35,6 +40,7 @@
             <hr style="background: #FEB7D3;" class="mx-2">
             <div class="text-center">
                 <a href="#" class="text-decoration-none "> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out</a>
+            </div>
             </div>
         </div>
 
@@ -60,6 +66,7 @@
                 class="form-control"
                 id="inputFirstName"
                 placeholder="Lê Thành"
+                disabled
               />
             </div>
             <div class="col-md-6">
@@ -69,6 +76,7 @@
                 class="form-control"
                 id="inputLastName"
                 placeholder="Nam"
+                disabled
               />
             </div>
       
@@ -79,6 +87,7 @@
                 class="form-control"
                 id="inputBirthday"
                 placeholder="04/03/2002"
+                disabled
               />
             </div>
       
@@ -87,13 +96,13 @@
             <div class="col-md-auto">
               <label for="inputGender" class="form-label">Gender</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="genderRad" id="maleRadio" checked>
+                <input class="form-check-input" type="radio" name="genderRad" id="maleRadio" checked disabled>
                 <label class="form-check-label" for="maleRadio">
                   Male
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="genderRad" id="femaleRadio">
+                <input class="form-check-input" type="radio" name="genderRad" id="femaleRadio" disabled>
                 <label class="form-check-label" for="femaleRadio">
                   Female
                 </label>
@@ -107,6 +116,7 @@
                 class="form-control"
                 id="inputAddress"
                 placeholder="1234 Main St"
+                disabled
               />
             </div>
       
@@ -117,17 +127,48 @@
                 class="form-control"
                 id="inputEmail"
                 placeholder="abc@gmail.com"
+                disabled
               />
             </div>
       
             <div class="col-10"></div>
-      
-            <div class="col-2">
-              <button class="btn" style="background: #f8c4d9;">Edit</button>
-              <button class="btn" style="background: #f8c4d9;">Save</button>
-            </div>
           </form>
+          <div class="container d-flex justify-content-center gap-1">
+            <div class="col-10"></div>
+            <button id="btn_edit" class="btn" style="background: #f8c4d9;">Edit</button>
+            <button id="btn_save" class="btn" style="background: #f8c4d9;">Save</button>
+          </div>
         </div>
     </div>
+
+    <script>
+      $(document).ready(function(){
+            $("#btn_edit").click(function(){
+                $("#inputFirstName").prop("disabled", false).focus();
+                $("#inputLastName").prop("disabled", false);
+                $("#inputBirthday").prop("disabled", false);
+                $("#maleRadio").prop("disabled", false);
+                $("#femaleRadio").prop("disabled", false);
+                $("#inputAddress").prop("disabled", false);
+                $("#inputEmail").prop("disabled", false);
+                $("#totalClass").prop("disabled", false);
+                $("#changeSubject").prop("disabled", false);
+            })
+
+            // BE set cho nút Save
+            $("#btn_save").click(function(){
+                // TODO: send input to server
+                $("#inputFirstName").prop("disabled", true);
+                $("#inputLastName").prop("disabled", true);
+                $("#inputBirthday").prop("disabled", true);
+                $("#maleRadio").prop("disabled", true);
+                $("#femaleRadio").prop("disabled", true);
+                $("#inputAddress").prop("disabled", true);
+                $("#inputEmail").prop("disabled", true);
+                $("#totalClass").prop("disabled", true);
+                $("#changeSubject").prop("disabled", true);
+            })
+        })
+    </script>
 </body>
 </html>
