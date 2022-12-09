@@ -56,7 +56,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>0001</td>
+                        <td class="id">0001</td>
                         <td>Thái Văn An</td>
                         <td>10.2</td>
                         <td>7.8</td>
@@ -64,7 +64,7 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>0002</td>
+                        <td class="id">0002</td>
                         <td>Huỳnh Bá Vinh</td>
                         <td>10.4</td>
                         <td>6.4</td>
@@ -72,7 +72,7 @@
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>0003</td>
+                        <td class="id">0003</td>
                         <td>Lê Văn Lộc</td>
                         <td>11.2</td>
                         <td>7.2</td>
@@ -80,8 +80,68 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="container justify-content-center d-flex">
-                <button class="btn col-1" style="background: #f8c4d9;">Edit</button>
+            <!-- Modal -->
+            <div class="modal fade " id="editScoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ID: </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container d-flex justify-content-around gap-1">
+                                <div class="col-6">
+                                    <label for="modal_id" class="form-label">ID</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_id"
+                                        placeholder="0001"/>
+                                </div>
+                                <div class="col-6">
+                                    <label for="modal_class" class="form-label">Class</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_class"
+                                        placeholder="10.3"/>
+                                </div>
+                            </div>
+                            <div class="container d-flex justify-content-around gap-1 my-1">
+                                <div class="col-6">
+                                    <label for="modal_1stsem" class="form-label">1st Semester</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_1stsem"
+                                        placeholder="9.0"/>
+                                </div>
+                                <div class="col-6">
+                                    <label for="modal_2ndsem"class="form-label">2nd Semester</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="modal_2ndsem"
+                                        placeholder="10.0"/>
+                                </div>
+                            </div>
+                            <div class="container">
+                            <div class="col-12">
+                                <label for="modal_name" class="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="modal_name"
+                                    placeholder="Lê Thành Nam"/>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn" style="background: #f8c4d9;">Save changes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -91,7 +151,18 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#example').DataTable(); 
+            // when table-row is clicked
+            $("#example tbody tr").click(function () {
+                
+                var item = $(this).closest("tr")  
+                       .find(".id")    
+                       .text();
+                
+                $(".modal-title").text("ID: " + item);
+                     
+                $("#editScoreModal").modal("show");
+            });
         });
     </script>
 </body>

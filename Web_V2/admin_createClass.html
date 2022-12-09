@@ -99,26 +99,76 @@
             <tbody>
                 <tr>
                     <td>10</td>
-                    <td>10.2</td>
+                    <td class="class">10.2</td>
                     <td>42</td>
                     <td>Trần Văn Toàn</td>
                 </tr>
                 <tr>
                   <td>11</td>
-                  <td>11.4</td>
+                  <td class="class">11.4</td>
                   <td>40</td>
                   <td>Thái Thị Minh Anh</td>
                 </tr>
                 <tr>
                   <td>12</td>
-                  <td>12.5</td>
+                  <td class="class">12.5</td>
                   <td>37</td>
                   <td>Huấn Hoa Hồng</td>
                 </tr>
             </tbody>
         </table>
-        <div class="container justify-content-center d-flex">
-          <button class="btn col-1" style="background: #f8c4d9;">Edit</button>
+        <!-- Modal -->
+        <div class="modal fade " id="editScoreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">ID: </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="container d-flex justify-content-around gap-1">
+                          <div class="col-4">
+                              <label for="modal_grade" class="form-label">Grade</label>
+                              <input
+                                  type="text"
+                                  class="form-control"
+                                  id="modal_grade"
+                                  placeholder="10"/>
+                          </div>
+                          <div class="col-4">
+                              <label for="modal_name" class="form-label">Name</label>
+                              <input
+                                  type="text"
+                                  class="form-control"
+                                  id="modal_name"
+                                  placeholder="10.3"/>
+                          </div>
+                          <div class="col-4">
+                              <label for="modal_size" class="form-label">Size</label>
+                              <input
+                                  type="text"
+                                  class="form-control"
+                                  id="modal_size"
+                                  placeholder="30"/>
+                          </div>
+                      </div>
+                      <div class="container">
+                        <div class="col-12">
+                          <label for="modal_headteacher" class="form-label">Head teacher</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="modal_headteacher"
+                                placeholder="Lê Thành Nam"/>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn" style="background: #f8c4d9;">Save changes</button>
+                  </div>
+              </div>
+          </div>
       </div>
         </div>
     </div>
@@ -127,7 +177,18 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#example').DataTable(); 
+            // when table-row is clicked
+            $("#example tbody tr").click(function () {
+                
+                var item = $(this).closest("tr")  
+                       .find(".class")    
+                       .text();
+                
+                $(".modal-title").text("Class: " + item);
+                     
+                $("#editScoreModal").modal("show");
+            });
         });
     </script>
 </body>
