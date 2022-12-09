@@ -19,6 +19,11 @@
     <!--jQuery-->
     <script src="jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--jQuery UI-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </head>
 <body>
@@ -31,9 +36,9 @@
             </div>
 
             <ul class="list-unstyled px-4 py-2">
-                <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-regular fa-user"></i> Profile</a></li>
-                <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-regular fa-star"></i> Score</a></li>
-                <li class="py-2"><a href="#" class="text-decoration-none"><i class="fa-solid fa-list"></i> Leaderboard</a></li>
+                <li class="py-2"><a href="./student_editProfile.html" class="text-decoration-none"><i class="fa-regular fa-user"></i> Profile</a></li>
+                <li class="py-2"><a href="./student_score.html" class="text-decoration-none"><i class="fa-regular fa-star"></i> Score</a></li>
+                <li class="py-2"><a href="./student_leaderBoard.html" class="text-decoration-none"><i class="fa-solid fa-list"></i> Leaderboard</a></li>
             </ul>
             <hr style="background: #FEB7D3;" class="mx-2">
             <div class="text-center">
@@ -43,9 +48,9 @@
         </div>
 
         <div class="content container mt-1" style="min-height: 100vh; width: 100%;">
-          <div class="col-md-12 fs-2 p-2 text-white text-center rounded" style="background: #f8c4d9;">Profile</div>
+          <div class="col-md-12 fs-2 p-2 text-white text-center rounded" style="background: #f8c4d9; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">Profile</div>
 
-          <form class="row g-3 mx-3 my-1">
+          <form class="row g-3 mx-1 mt-5 mb-3 rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
             
             <div class="col-md-12">
               <label for="ID" class="form-label">ID</label>
@@ -133,13 +138,14 @@
           </form>
           <div class="container d-flex justify-content-center gap-1">
             <div class="col-10"></div>
-            <button id="btn_edit" class="btn" style="background: #f8c4d9;">Edit</button>
-            <button id="btn_save" class="btn" style="background: #f8c4d9;">Save</button>
+            <button id="btn_edit" class="btn" style="background: #f8c4d9; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">Edit</button>
+            <button id="btn_save" class="btn" style="background: #f8c4d9; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">Save</button>
           </div>
         </div>
     </div>
 
     <script>
+
       $(document).ready(function(){
             $("#btn_edit").click(function(){
                 $("#inputFirstName").prop("disabled", false).focus();
