@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">   
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
     <div class="main-container d-flex">
@@ -46,11 +48,12 @@
                 <div class="row justify-content-around">
                     <label class="col-1" for="account">Account:</label>
                     <select class="col-2" name="account" id="account">
+                        <option value="null">--Chọn--</option>
                         <option value="student">Học sinh</option>
                         <option value="teacher">Giáo viên</option>
                     </select>
 
-                    <label class="col-1" for="subject">Subject:</label>
+                    <label id="subject_lb" class="col-1" for="subject">Subject:</label>
                     <select class="col-1" name="subject" id="subject">
                         <option value="Toán">Toán</option>
                         <option value="Lý">Lý</option>
@@ -63,17 +66,19 @@
                         <option value="T.Dục">T.Dục</option>
                     </select>
 
-                    <label class="col-1" for="classteach">Teaching:</label>
+                    <label id="classteach_lb" class="col-1" for="classteach">Teaching:</label>
                     <select class="col-1" name="classteach" id="classteach">
                         <option value="10.5">10.5</option>
                         <option value="11.4">11.4</option>
                     </select>
         
-                    <label class="col-1" for="classstudying">Studying:</label>
+                    <label id="class_lb" class="col-1" for="classstudying">Studying:</label>
                     <select class="col-1" name="classstudying" id="class">
                         <option value="10.5">10.5</option>
                         <option value="11.4">11.4</option>
                     </select>
+
+                    <div class="col-12"></div>
 
                     <div class="col-md-6 mt-3">
                         <label for="inputFirstName" class="form-label">First Name</label>
@@ -142,11 +147,60 @@
                         />
                       </div>
                     <div class="row my-5 justify-content-center">   
-                        <button class="btn col-1" style="background: #f8c4d9; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">Create</button>
+                        <button id="btn_create" class="btn col-1" style="background: #f8c4d9; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">Create</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+       $(document).ready(function () {
+            $("#subject_lb").hide();
+            $("#subject").hide();
+            $("#classteach_lb").hide();
+            $("#classteach").hide();
+            $("#class_lb").hide();
+            $("#class").hide();
+        
+            $("#btn_create").addClass('disabled');
+            
+
+            $("#account").change(function() {
+              var conceptName = $("#account").find(":selected").val();
+              if (conceptName == "student") {
+                  $("#subject_lb").hide();
+                  $("#subject").hide();
+                  $("#classteach_lb").hide();
+                  $("#classteach").hide();
+
+                  $("#class_lb").show();
+                  $("#class").show();
+
+                  $("#btn_create").removeClass('disabled');
+              }
+              if (conceptName == "teacher") {
+                  $("#subject_lb").show();
+                  $("#subject").show();
+                  $("#classteach_lb").show();
+                  $("#classteach").show();
+
+                  $("#class_lb").hide();
+                  $("#class").hide();
+
+                  $("#btn_create").removeClass('disabled');
+              }
+              if ($("#account").find(":selected").val() == "null"){
+                $("#subject_lb").hide();
+                $("#subject").hide();
+                $("#classteach_lb").hide();
+                $("#classteach").hide();
+                $("#class_lb").hide();
+                $("#class").hide();
+
+                $("#btn_create").addClass('disabled');
+              }
+            })
+        });
+    </script>
 </body>
 </html>
