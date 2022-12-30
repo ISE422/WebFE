@@ -49,8 +49,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Class</th>
-                        <th>1st Semester</th>
-                        <th>2nd Smester</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,24 +57,18 @@
                         <td class="id">0001</td>
                         <td>Thái Văn An</td>
                         <td>10.2</td>
-                        <td>7.8</td>
-                        <td>8.2</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td class="id">0002</td>
                         <td>Huỳnh Bá Vinh</td>
                         <td>10.4</td>
-                        <td>6.4</td>
-                        <td>5.9</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td class="id">0003</td>
                         <td>Lê Văn Lộc</td>
                         <td>11.2</td>
-                        <td>7.2</td>
-                        <td>9.8</td>
                     </tr>
                 </tbody>
             </table>
@@ -99,32 +91,11 @@
                                         placeholder="0001"/>
                                 </div>
                                 <div class="col-6">
-                                    <label for="modal_class" class="form-label">Class</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="modal_class"
-                                        placeholder="10.3"/>
-                                </div>
-                            </div>
-                            <div class="container d-flex justify-content-around gap-1 my-1">
-                                <div class="col-6">
-                                    <label for="modal_1stsem" class="form-label">1st Semester</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="modal_1stsem"
-                                        placeholder="9.0"
-                                        disabled/>
-                                </div>
-                                <div class="col-6">
-                                    <label for="modal_2ndsem"class="form-label">2nd Semester</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="modal_2ndsem"
-                                        placeholder="10.0"
-                                        disabled/>
+                                    <label id="class_lb" class="form-label" for="classstudying">Studying:</label>
+                                    <select class="col-1 form-control" name="classstudying" id="class">
+                                        <option value="10.5">10.5</option>
+                                        <option value="11.4">11.4</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="container">
