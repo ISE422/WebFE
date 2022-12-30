@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="btnClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn" style="background: #f8c4d9;">Save changes</button>
                         </div>
                     </div>
@@ -163,9 +163,17 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
-            
-            // when table-row is clicked
-            $("#example tbody tr").click(function () {
+
+            var table = $('#example').DataTable();
+
+            $('#example tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                } else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+
                 // find student's ID
                 var item = $(this).closest("tr")   // Finds the closest row <tr> 
                        .find(".id")     // Gets a descendent with class="nr"
@@ -174,8 +182,13 @@
                 $(".modal-title").text("ID: " + item);
                 // show modal       
                 $("#editScoreModal").modal("show");
+
+                $("#btnClose").on('click',function(){
+                    table.$('tr.selected').removeClass('selected');
+                })
             });
         });
+
     </script>
 </body>
 </html>
